@@ -5,7 +5,6 @@
 package com.inventario.inventario.repository;
 
 import com.inventario.inventario.model.Usuarios;
-import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,12 +13,12 @@ import org.springframework.data.repository.query.Param;
 
 /**
  *
- * @author Wilson
+ * @author pao
  */
-public interface UsuariosRepository extends JpaRepository<Usuarios, Integer> {
+public interface UsuariosRepository extends JpaRepository<Usuarios, String> {
     
     
-    @Query(value= "select * from usuario u where u.nombre_usuario = :usuario and u.contraseña = :contraseña", nativeQuery = true )
-    Optional<Usuarios> usuarios (@Param ("usuario")String usuario, @Param ("contraseña")String contraseña);
+    @Query(value= "select * from usuario u where u.Id_Usuario =:usuario and u.contraseña =:contraseña", nativeQuery = true )
+    Optional<Usuarios>   LoginUsuario (@Param ("usuario")String usuario, @Param ("contraseña")String contraseña);
     
 }

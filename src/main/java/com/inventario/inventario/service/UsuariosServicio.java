@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author Wilson
+ * @author pao
  */
 @Service
 public class UsuariosServicio {
@@ -21,7 +21,7 @@ public class UsuariosServicio {
     UsuariosRepository usuarioServicio;
     
     public Optional<Usuarios> getUsuarioByUserAndPass(UsuariosDto dto){
-        return this.usuarioServicio.usuarios(dto.getUsuario(),dto.getPassword());
+        return this.usuarioServicio.LoginUsuario(dto.getUsuario(),dto.getPassword());
     }
 
     

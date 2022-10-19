@@ -6,7 +6,7 @@ package com.inventario.inventario.dto;
 
 /**
  *
- * @author Wilson
+ * @author pao
  */
 public class UsuariosDto {
     private String usuario;

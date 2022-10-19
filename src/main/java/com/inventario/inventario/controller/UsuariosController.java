@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author Wilson
+ * @author pao
  */
 @CrossOrigin(origins = "http://localhost:4200/")
 @RestController
@@ -39,5 +39,11 @@ public class UsuariosController {
     public ResponseEntity<Optional<Usuarios>> obtenerAsuetosCreados(@RequestBody UsuariosDto dto) {
         return ResponseEntity.ok(usuarioServicio.getUsuarioByUserAndPass(dto));
     }
+   /*   @PostMapping(path = "/GuardarUsuario")
+    @ResponseStatus(HttpStatus.OK)
+    //@ApiOperation(value = "Obtiene detalle de los eventos", notes = "")
+    public ResponseEntity<Optional<Usuarios>> GuardarUsuario(@RequestBody UsuariosDto dto) {
+        return ResponseEntity.ok(usuarioServicio.getUsuarioByUserAndPass(dto));
+    }*/
     
 }

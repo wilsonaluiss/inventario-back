@@ -6,7 +6,7 @@ package com.inventario.inventario.model;
 
 /**
  *
- * @author Wilson
+ * @author pao
  */
 
 import javax.persistence.*;
@@ -20,17 +20,16 @@ public class Usuarios {
     
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int codigo_usuario;
+    private String Id_usuario;
     
     @Column
-    private String nombre_usuario;
-    
-    @Column
-    private String contraseña;
+    private String Contraseña ;
     
     @Column 
-    private int codigo_rol;
+    private int Id_Rol ;
     
+   @Column 
+    private String Estado;
     
+
 }
