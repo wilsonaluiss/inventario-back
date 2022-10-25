@@ -38,6 +38,8 @@ public class UsuariosController {
     //@ApiOperation(value = "Obtiene detalle de los eventos", notes = "")
     public ResponseEntity<Optional<Usuarios>> obtenerAsuetosCreados(@RequestBody UsuariosDto dto) {
         return ResponseEntity.ok(usuarioServicio.getUsuarioByUserAndPass(dto));
+        
+        //test
     }
    /*   @PostMapping(path = "/GuardarUsuario")
     @ResponseStatus(HttpStatus.OK)

@@ -24,7 +24,7 @@ import lombok.Builder;
 @Table(name = "bodega", schema = "public")
 public class BodegaModel implements java.io.Serializable{
     
-    private int codigoBodega;
+    private int idBodega;
     private String nombre;
     private String direccion;
     private String estado;
@@ -34,8 +34,8 @@ public class BodegaModel implements java.io.Serializable{
     public BodegaModel() {
     }
 
-    public BodegaModel(int codigoBodega, String nombre, String direccion, String estado, Date fechacreacion, Date fechamodificacion) {
-        this.codigoBodega = codigoBodega;
+    public BodegaModel(int idBodega, String nombre, String direccion, String estado, Date fechacreacion, Date fechamodificacion) {
+        this.idBodega = idBodega;
         this.nombre = nombre;
         this.direccion = direccion;
         this.estado = estado;
@@ -47,20 +47,22 @@ public class BodegaModel implements java.io.Serializable{
     
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "codigo_bodega", unique = true, nullable = false)
-    public int getCodigoBodega() {
-        return codigoBodega;
+    @Column(name = "id_bodega", unique = true, nullable = false)
+    public int getIdBodega() {
+        return idBodega;
     }
 
-    public void setCodigoBodega(int codigoBodega) {
-        this.codigoBodega = codigoBodega;
+    public void setIdBodega(int idBodega) {
+        this.idBodega = idBodega;
     }
+    
 
     @Column(name = "nombre")
     public String getNombre() {
         return nombre;
     }
 
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

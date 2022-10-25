@@ -4,19 +4,14 @@
  */
 package com.inventario.inventario.controller;
 
-import static com.inventario.inventario.controller.BodegaController.LOG;
 import com.inventario.inventario.dto.ProductoDto;
-import com.inventario.inventario.model.BodegaModel;
 import com.inventario.inventario.model.ProductoModel;
-import com.inventario.inventario.projection.ProductoProjection;
 import com.inventario.inventario.service.ProductoService;
-import java.util.List;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
