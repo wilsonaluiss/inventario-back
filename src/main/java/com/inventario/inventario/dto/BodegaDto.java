@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  *
- * @author Wilson
+ * @author pao
  */
 public class BodegaDto {
 
