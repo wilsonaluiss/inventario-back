@@ -5,7 +5,11 @@
 package com.inventario.inventario.repository;
 
 import com.inventario.inventario.model.ProductoModel;
+import com.inventario.inventario.projection.InventarioProjection;
+import com.inventario.inventario.projection.ProductoProjection;
+import java.util.List;
 import java.util.Optional;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -16,5 +20,8 @@ public interface ProductoRepository extends CrudRepository<ProductoModel, Intege
 
     ProductoModel findByNombre(String nombre);
     
+    @Query(value = "SELECT Id_Producto ,nombre ,precio"
+             + " FROM  Producto", nativeQuery = true)
+    List<ProductoProjection> traerProductos();
     
 }

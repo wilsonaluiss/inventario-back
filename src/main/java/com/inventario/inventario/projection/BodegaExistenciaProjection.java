@@ -12,4 +12,5 @@ public interface BodegaExistenciaProjection {
     String getId_Bodega ();
     String getNombre ();
     String getExistencias();
+    String getId_Producto ();
 }

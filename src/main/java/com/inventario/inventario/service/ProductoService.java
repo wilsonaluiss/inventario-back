@@ -6,7 +6,9 @@ package com.inventario.inventario.service;
 
 import com.inventario.inventario.dto.ProductoDto;
 import com.inventario.inventario.model.ProductoModel;
+import com.inventario.inventario.projection.ProductoProjection;
 import com.inventario.inventario.repository.ProductoRepository;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -65,6 +67,10 @@ public class ProductoService {
         }else{
             return false;
         }
+    }
+    
+    public   List<ProductoProjection> getProductos(){
+        return this.productoRepository.traerProductos();
     }
     
 }

@@ -5,6 +5,7 @@
 package com.inventario.inventario.controller;
 
 import static com.inventario.inventario.controller.BodegaController.LOG;
+import com.inventario.inventario.dto.TrasladoDto;
 import com.inventario.inventario.model.BodegaModel;
 import com.inventario.inventario.projection.BodegaExistenciaProjection;
 import com.inventario.inventario.projection.InventarioProjection;
@@ -15,6 +16,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -55,6 +58,17 @@ public class InventarioController {
         }
     }
     
+       @PostMapping(path = "/traslado")
+    public boolean traslado(@RequestBody TrasladoDto traslado) {
+        
+        LOG.info("realizando traslado de producto entre bodegas"+ traslado.toString());
+        try {
+            return service.trasladoBodega(traslado);
+        } catch (Exception e) {
+            LOG.error("Error: " + e);
+            return false;
+        }
+    }
 
 }
 

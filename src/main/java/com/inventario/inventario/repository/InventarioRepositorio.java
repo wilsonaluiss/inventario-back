@@ -9,6 +9,7 @@ import com.inventario.inventario.projection.*;
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
@@ -24,8 +25,14 @@ public interface InventarioRepositorio extends  JpaRepository <InventarioModel, 
              + " INNER JOIN Bodega Bd on iv.Id_Bodega = Bd.Id_Bodega", nativeQuery = true)
     List<InventarioProjection> traerTabla();
      
-        @Query(value = "SELECT  Bd.Id_Bodega ,Bd.nombre,  iv.existencias"
+        @Query(value = "SELECT  Bd.Id_Bodega ,Bd.nombre, iv.Id_Producto ,iv.existencias"
              + " FROM Inventario iv"
              + " INNER JOIN Bodega Bd on iv.Id_Bodega = Bd.Id_Bodega", nativeQuery = true)
     List<BodegaExistenciaProjection> getExistenciasBodegas();
+    
+    @Query(value = "CALL TrasladoBodega(:v_idbodegaorigen,:v_idbodegadestino ,:v_idproducto ,:v_cantidad,0);", nativeQuery = true)
+    int trasladoBodeaga(@Param("v_idbodegaorigen") Integer IdBodegaOrgien,
+                        @Param("v_idbodegadestino") Integer IdBodegaDestino,
+                        @Param("v_idproducto") Integer IdProducto,
+                        @Param("v_cantidad") Integer Cantidad);
 }

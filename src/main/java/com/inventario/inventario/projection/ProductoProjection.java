@@ -12,11 +12,7 @@ import java.util.Date;
  */
 public interface ProductoProjection {
     
-    public int getCodigo_producto();
-    public String getDombre();
-    public String getDescripcion();
+    public int getId_Producto();
+    public String getNombre();
     public float getPrecio();
-    public String getEstado();
-    public Date	getFechacreacion();
-    public Date	getFechamodificacion();
 }

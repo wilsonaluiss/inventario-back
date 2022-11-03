@@ -13,6 +13,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface BodegaRepository extends CrudRepository<BodegaModel, Integer> {
     
-    
     BodegaModel findByNombre(String bodega);
+   
 }

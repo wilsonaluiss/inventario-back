@@ -4,9 +4,11 @@
  */
 package com.inventario.inventario.service;
 
+import com.inventario.inventario.dto.TrasladoDto;
 import com.inventario.inventario.projection.BodegaExistenciaProjection;
 import com.inventario.inventario.projection.InventarioProjection;
 import com.inventario.inventario.repository.InventarioRepositorio;
+import static com.inventario.inventario.service.ProductoService.LOG;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +29,18 @@ public class InventarioService {
     
     public List<BodegaExistenciaProjection> listBodegasExistencia(){
         return this.InventarioServicio.getExistenciasBodegas();
+    }
+    
+    public boolean trasladoBodega(TrasladoDto traslado){
+        try {
+            this.InventarioServicio.trasladoBodeaga(traslado.getIdBodegaOrigen(),
+                                                    traslado.getIdBodegaDestino(), 
+                                                    traslado.getIdProducto(), 
+                                                    traslado.getCantidad());
+            return true;
+        } catch (Exception e) {
+            LOG.debug("Error al realizar traslado "+e.getMessage());
+            return false;
+        }
     }
 }
