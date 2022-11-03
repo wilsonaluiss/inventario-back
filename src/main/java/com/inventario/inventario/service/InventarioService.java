@@ -7,6 +7,7 @@ package com.inventario.inventario.service;
 import com.inventario.inventario.dto.TrasladoDto;
 import com.inventario.inventario.projection.BodegaExistenciaProjection;
 import com.inventario.inventario.projection.InventarioProjection;
+import com.inventario.inventario.projection.MovimientoProjection;
 import com.inventario.inventario.repository.InventarioRepositorio;
 import static com.inventario.inventario.service.ProductoService.LOG;
 import java.util.List;
@@ -43,4 +44,8 @@ public class InventarioService {
             return false;
         }
     }
+    public List<MovimientoProjection> getMovimiento(){
+        return this.InventarioServicio.traerMovimiento();
+    }
+    
 }
