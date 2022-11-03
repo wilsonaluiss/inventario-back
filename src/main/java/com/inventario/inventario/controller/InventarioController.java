@@ -9,6 +9,7 @@ import com.inventario.inventario.dto.TrasladoDto;
 import com.inventario.inventario.model.BodegaModel;
 import com.inventario.inventario.projection.BodegaExistenciaProjection;
 import com.inventario.inventario.projection.InventarioProjection;
+import com.inventario.inventario.projection.MovimientoProjection;
 import com.inventario.inventario.service.InventarioService;
 import java.util.List;
 import javax.validation.Valid;
@@ -70,5 +71,17 @@ public class InventarioController {
         }
     }
 
+    
+         @GetMapping(path = "/movimientos")
+    public List<MovimientoProjection> getMovimiento() {
+        
+        LOG.info("consultando Movimientos");
+        try {
+            return service.getMovimiento();
+        } catch (Exception e) {
+            LOG.error("Error: " + e);
+            return null;
+        }
+    }
 }
 

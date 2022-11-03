@@ -35,4 +35,14 @@ public interface InventarioRepositorio extends  JpaRepository <InventarioModel, 
                         @Param("v_idbodegadestino") Integer IdBodegaDestino,
                         @Param("v_idproducto") Integer IdProducto,
                         @Param("v_cantidad") Integer Cantidad);
+    
+    
+     @Query(value = " \n" +
+           " select b.nombre as NombreBodega  ,p.nombre as NombreProducto,"
+             + "t.nombre_movimiento as tipoMovimiento,mp.cantidad as cantidadProducto,mp.fecha_movimiento as Fecha  \n" +
+               " from movimiento_producto mp \n" +
+               " inner join producto p on mp.id_producto  = p.id_producto \n" +
+               " inner join bodega b on mp.id_bodega =b.id_bodega \n" +
+               " inner join tipomovimiento t on mp.id_tmovimiento =t.id_tmovimiento ", nativeQuery = true)
+    List<MovimientoProjection> traerMovimiento();
 }
