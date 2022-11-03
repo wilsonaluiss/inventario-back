@@ -14,14 +14,16 @@ import org.springframework.data.repository.CrudRepository;
 
 /**
  *
- * @author Wilson
+ * @author paola
  */
 public interface ProductoRepository extends CrudRepository<ProductoModel, Integer> {
 
     ProductoModel findByNombre(String nombre);
     
-    @Query(value = "SELECT Id_Producto ,nombre ,precio"
-             + " FROM  Producto", nativeQuery = true)
+    @Query(value = "SELECT P.id_producto ,P.nombre ,P.precio \n" +
+             " FROM  Producto P\n" +
+             " inner join inventario i on P.id_producto =i.id_producto", nativeQuery = true)
     List<ProductoProjection> traerProductos();
     
 }
+
