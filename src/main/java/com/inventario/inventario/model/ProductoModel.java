@@ -26,7 +26,7 @@ import lombok.Builder;
 @Table(name = "producto", schema = "public")
 public class ProductoModel implements java.io.Serializable {
 
-    private int codigoProducto;
+    private int idProducto;
     private String nombre;
     private String descripcion;
     private float precio;
@@ -37,19 +37,21 @@ public class ProductoModel implements java.io.Serializable {
     
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "codigo_producto", unique = true, nullable = false)
-    public int getCodigoProducto() {
-        return codigoProducto;
+    @Column(name = "id_producto", unique = true, nullable = false)
+    public int getIdProducto() {
+        return idProducto;
     }
 
-    public void setCodigoProducto(int codigoProducto) {
-        this.codigoProducto = codigoProducto;
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
     @Column(name = "nombre")
     public String getNombre() {
         return nombre;
     }
+
+    
 
     public void setNombre(String nombre) {
         this.nombre = nombre;

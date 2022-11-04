@@ -10,6 +10,7 @@ import com.inventario.inventario.model.BodegaModel;
 import com.inventario.inventario.model.ProductoModel;
 import com.inventario.inventario.repository.BodegaRepository;
 import static com.inventario.inventario.service.ProductoService.LOG;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,6 +65,10 @@ public class BodegaService {
         }else{
             return false;
         }
+    }
+    
+    public List<BodegaModel> obtenerBodega(){
+        return(List<BodegaModel>)bodegaRepository.findAll();
     }
     
 }

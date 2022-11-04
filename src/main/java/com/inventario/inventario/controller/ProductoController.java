@@ -29,23 +29,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 public class ProductoController {
-    
+
     final static Logger LOG = LoggerFactory.getLogger(ProductoController.class);
-    
+
     @Autowired
     ProductoService productoService;
-    
-    @PostMapping(value = "/producto/crear")
+
+    @PostMapping(path = "/crearProducto")
     public Boolean crearProducto(@Valid @RequestBody ProductoModel producto) {
-        log.info("Creando producto");
         try {
             return productoService.crearProducto(producto);
         } catch (Exception e) {
-            LOG.error("Error: " + e);
+            LOG.error("Error" + e);
             return false;
         }
     }
-    
+
     @PutMapping(value = "/producto/modificarProducto/{idProducto}")
     public Boolean ModificarProducto(@Valid @PathVariable Integer idProducto, @RequestBody ProductoDto dto) {
         log.info("Modificando producto");
@@ -56,10 +55,10 @@ public class ProductoController {
             return false;
         }
     }
-    
-    @GetMapping (value = "/producto/lstproductos")
-    public   List<ProductoProjection> getProductos(){
-          LOG.info("consultando existencia de bodegas");
+
+    @GetMapping(value = "/producto/lstproductos")
+    public List<ProductoProjection> getProductos() {
+        LOG.info("consultando existencia de bodegas");
         try {
             return productoService.getProductos();
         } catch (Exception e) {
@@ -67,6 +66,10 @@ public class ProductoController {
             return null;
         }
     }
+
     
-   
+    @GetMapping(value = "/obtenerProductos")
+    public List<ProductoModel> obtenerBodega() {
+        return productoService.obtenerProductos();
+    }
 }

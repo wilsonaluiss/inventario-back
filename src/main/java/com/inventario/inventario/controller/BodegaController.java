@@ -8,12 +8,15 @@ import static com.inventario.inventario.controller.ProductoController.LOG;
 import com.inventario.inventario.dto.BodegaDto;
 import com.inventario.inventario.dto.ProductoDto;
 import com.inventario.inventario.model.BodegaModel;
+import com.inventario.inventario.projection.BodegaProyection;
 import com.inventario.inventario.service.BodegaService;
+import java.util.List;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -54,4 +57,9 @@ public class BodegaController {
         }
     }
     
+    
+    @GetMapping(value = "/obtenerBodega")
+    public List<BodegaModel> obtenerBodega() {
+        return bodegaService.obtenerBodega();
+    }
 }
